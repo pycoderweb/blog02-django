@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Bosh sahifa{% endblock title %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {{ user.username }}!
+        <p><a href="{% url 'logout' %}">Chiqib ketish</a></p>
+        <div class="card" style="width: 18rem;">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Postlarni ko'rish uchun bosing!</h5>
+            <p class="card-text">Bu yerda sayt foydalanuchilari joylagan postlarni ko'rishingiz mumkin</p>
+            <a href="#" class="btn btn-primary stretched-link">Ko'rish</a>
+          </div>
+        </div>
+    {% else %}
+        <p>Saytga kirmagansiz</p>
+        <a href="{% url 'login' %}">Kirish</a> |
+        <a href="{% url 'signup' %}">Ro'yxatdan o'tish</a>
+    {% endif %}
+{% endblock content %}
